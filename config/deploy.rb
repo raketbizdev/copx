@@ -4,9 +4,9 @@ lock "~> 3.11.2"
 # Change these
 server '128.199.187.22', port: 22, roles: [:web, :app, :db], primary: true
 
-set :repo_url,        'git@bitbucket.org:radongrafix/iokos.git'
-set :application,     'iokos'
-set :user,            'iokos'
+set :repo_url,        'git@github.com:raketbizdev/copx.git'
+set :application,     'copx'
+set :user,            'django'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
 set :rvm_type, :auto
@@ -32,7 +32,7 @@ set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 append :linked_files, "config/master.key"
 
-# sudo ln -nfs "/home/yintly/yintly/current/config/nginx.conf" "/etc/nginx/sites-enabled/yintly"
+# sudo ln -nfs "/home/django/sites/copx/current/config/nginx.conf" "/etc/nginx/sites-enabled/copx.ideamakr.com.conf"
 
 ## Defaults:
 # set :scm,           :git
@@ -159,10 +159,10 @@ end
 # ps aux | grep puma    # Get puma pid
 # kill -s SIGUSR2 pid   # Restart puma
 # kill -s SIGTERM pid   # Stop puma
-# sudo ln -nfs "/home/iokos/iokos/current/config/nginx.conf" "/etc/nginx/sites-enabled/iokos"
+# sudo ln -nfs "/home/django/sites/copx/current/config/nginx.conf" "/etc/nginx/sites-enabled/iokos"
 # bundle exec rails console -e production
 # sudo systemctl restart nginx.service
 # sudo systemctl status nginx.service
 # sudo certbot --nginx -d iokos.ph -d warranty.iokos.com
-# sudo certbot certonly --webroot --webroot-path=/home/yintly/yintly/current/public -d yintly.com -d www.yintly.com
+# sudo certbot certonly --webroot --webroot-path=/home/django/sites/copx/current/public -d copx.ideamakr.com
 # RAILS_ENV=production bundle exec rails console
