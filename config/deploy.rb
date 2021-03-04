@@ -1,8 +1,8 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.11.2"
+lock "~> 3.16.0"
 
 # Change these
-server '128.199.187.22', port: 22, roles: [:web, :app, :db], primary: true
+server '104.248.210.141', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:raketbizdev/copx.git'
 set :application,     'copx'
@@ -10,9 +10,9 @@ set :user,            'django'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
 set :rvm_type, :auto
-set :rvm_ruby_version, '2.6.5'
+set :rvm_ruby_version, '2.5.1'
 
-# set :rvm_custom_path, '/usr/local/rvm'
+set :rvm_custom_path, '/usr/share/rvm'
 
 
 # Don't change these unless you know what you're doing
@@ -20,7 +20,7 @@ set :pty,             true
 set :use_sudo,        false
 set :stage,           :production
 set :deploy_via,      :remote_cache
-set :deploy_to,       "/home/#{fetch(:user)}/#{fetch(:application)}"
+set :deploy_to,       "/home/#{fetch(:user)}/sites/#{fetch(:application)}"
 set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
 set :puma_state,      "#{shared_path}/tmp/pids/puma.state"
 set :puma_pid,        "#{shared_path}/tmp/pids/puma.pid"
@@ -37,7 +37,7 @@ append :linked_files, "config/master.key"
 ## Defaults:
 # set :scm,           :git
 # set :branch,       s, 5
-set :master
+set :dev
 # set :format,        :pretty
 # set :log_level,     :debug
 # set :keep_release
@@ -61,8 +61,8 @@ namespace :deploy do
   desc "Make sure local git is in sync with remote."
   task :check_revision do
     on roles(:app) do
-      unless `git rev-parse HEAD` == `git rev-parse origin/master`
-        puts "WARNING: HEAD is not the same as origin/master"
+      unless `git rev-parse HEAD` == `git rev-parse origin/dev`
+        puts "WARNING: HEAD is not the same as origin/dev"
         puts "Run `git push` to sync changes."
         exit
       end
