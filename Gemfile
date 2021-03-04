@@ -55,10 +55,10 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 
   gem 'capistrano',         require: false
-  gem 'capistrano-rvm',     require: false
-  gem 'capistrano-rails',   require: false
-  gem 'capistrano-bundler', require: false
-  gem 'capistrano3-puma',   require: false
+  gem 'capistrano-rvm'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano3-puma'
   gem 'capistrano-rails-console', require: false
   # gem 'capistrano-figaro-yml', '~> 1.0.2'
   
