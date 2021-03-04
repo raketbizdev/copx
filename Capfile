@@ -6,7 +6,7 @@ require 'capistrano/rails'
 require 'capistrano/bundler'
 require 'capistrano/rvm'
 require 'capistrano/puma'
-require 'capistrano/figaro_yml'
+# require 'capistrano/figaro_yml'
 install_plugin Capistrano::Puma
 
 # Load the SCM plugin appropriate to your project:
