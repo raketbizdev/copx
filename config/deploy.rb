@@ -37,8 +37,8 @@ append :linked_files, "config/master.key"
 
 ## Defaults:
 # set :scm,           :git
-# set :branch,       s, 5
-set :dev
+set :branch, fetch(:branch, "dev")
+# set :dev
 # set :format,        :pretty
 # set :log_level,     :debug
 # set :keep_release
