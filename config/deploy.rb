@@ -10,7 +10,7 @@ set :user,            'django'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
 set :rvm_type, :auto
-set :rvm_ruby_version, '2.5.1'
+set :rvm_ruby_version, '2.6.3'
 
 set :rvm_custom_path, '/usr/share/rvm'
 
@@ -32,6 +32,11 @@ set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 append :linked_files, "config/master.key"
+
+set :bundle_path, nil
+set :bundle_jobs, 4
+set :bundle_without, nil
+set :bundle_flags, nil
 
 # sudo ln -nfs "/home/django/sites/copx/current/config/nginx.conf" "/etc/nginx/sites-enabled/copx.ideamakr.com.conf"
 
